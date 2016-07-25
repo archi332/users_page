@@ -46,6 +46,13 @@ class Controller_add_user extends Controller {
 			$this->action_index($errors, 'errors');
 		} else {
 			//@TODO: connect to database and add new user
+
+			$this->library('upload');
+
+			$this->upload->upload_file();
+
+
+
 				echo '<h3>POST</h3>';
 			var_dump($_POST);
 		}
@@ -101,7 +108,7 @@ class Controller_add_user extends Controller {
 				'name' => [
 						'field_name' => 'Изображение профиля',
 						'precision' => true,
-						'max_length' => 20,
+						'max_length' => 40,
 						'min_length' => 3,
 						'type_img' => 'jpg/png/gif' ],
 				'size' =>[
