@@ -46,7 +46,7 @@ class Model {
 	/**
 	 * connect PDO
 	 */
-	function connect_pdo()
+	private function connect_pdo()
 	{
 		try
 		{
@@ -67,7 +67,7 @@ class Model {
 	 * @param $sql
 	 * @return array
 	 */
-	function select($sql)
+	protected function select($sql)
 	{
 		try {
 			$data_array = $this->getPdo()->query($sql)->fetchAll();
@@ -78,6 +78,47 @@ class Model {
 			exit();
 		}
 	}
+
+
+	/**
+	 * prepare data
+	 * @param $allowed
+	 * @param $values
+	 * @param array $source
+	 * @return string
+	 */
+	function pdoSet($allowed, &$values, $source = array())
+	{
+		$set = '';
+		$values = array();
+		if (!$source) $source = &$_POST;
+		foreach ($allowed as $field) {
+			if (isset($source[$field])) {
+				$set.="`".str_replace("`","``",$field)."`". "=:$field, ";
+				$values[$field] = $source[$field];
+			}
+		}
+		return substr($set, 0, -2);
+	}
+
+	/**
+	 * @param $array
+	 * @param $table
+	 */
+	protected function insert($array, $table)
+	{
+		foreach($array as $key => $value){
+			$allowed[] = $key;
+			$values[] = $value;
+		}
+
+		$sql = "INSERT INTO $table SET " . $this->pdoSet($allowed,$values, $array);
+
+		$stm = $this->getPdo()->prepare($sql);
+
+		$stm->execute($values);
+	}
+
 
 	/**
 	 * @param $error
@@ -94,7 +135,7 @@ class Model {
 	/**
 	 * @return PDO
 	 */
-	public function getPdo()
+	private function getPdo()
 	{
 		return $this->pdo;
 	}
@@ -102,7 +143,7 @@ class Model {
 	/**
 	 * @param PDO $pdo
 	 */
-	public function setPdo($pdo)
+	private function setPdo($pdo)
 	{
 		$this->pdo = $pdo;
 	}

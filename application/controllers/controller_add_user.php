@@ -49,12 +49,17 @@ class Controller_add_user extends Controller {
 
 			$this->library('upload');
 
-			$this->upload->upload_file();
+			$file_name = date('Ymd') . '_' . $_FILES['foto_name']['name'];
 
+			$this->upload->upload_file($file_name);
 
+			$array = $_POST;
+			$array['foto_name'] = $file_name;
 
-				echo '<h3>POST</h3>';
-			var_dump($_POST);
+			$this->model->insert_db($array);
+
+			header('Location:http://' . $_SERVER['HTTP_HOST']);
+
 		}
 
 	}
@@ -107,9 +112,6 @@ class Controller_add_user extends Controller {
 		$val_rules = array(
 				'name' => [
 						'field_name' => 'Изображение профиля',
-						'precision' => true,
-						'max_length' => 40,
-						'min_length' => 3,
 						'type_img' => 'jpg/png/gif' ],
 				'size' =>[
 						'field_name' => 'Изображение профиля',
