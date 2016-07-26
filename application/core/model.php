@@ -94,9 +94,6 @@ class Model {
 		}
 	}
 
-
-
-
 	/**
 	 * prepare data
 	 * @param $allowed
@@ -119,8 +116,8 @@ class Model {
 	}
 
 	/**
-	 * @param $array
-	 * @param $table
+	 * @param $array columns
+	 * @param $table name
 	 */
 	protected function insert($array, $table)
 	{
@@ -143,6 +140,8 @@ class Model {
 	 */
 	function db_err($error, $err_arr)
 	{
+//		Route::ErrorPage404();
+
 		$result = '<h1>ERROR!</h1>';
 		$result .= "<p>$error</p>";
 		echo $result . '<pre>';

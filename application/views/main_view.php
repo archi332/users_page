@@ -4,12 +4,12 @@
 <table width="100%" class="table">
     <tr align="center">
 
-        <td>foto</td>
-        <td>sec_name</td>
-        <td>first_name</td>
-        <td>date_b</td>
-        <td>city name</td>
-        <td>dgfdg</td>
+        <td><b>Photo</b></td>
+        <td><b>sec_name</b></td>
+        <td><b>first_name</b></td>
+        <td><b>date_b</b></td>
+        <td><b>city name</b></td>
+        <td></td>
     </tr>
     <?php foreach($data as $value) : ?>
         <tr align="center">
@@ -18,7 +18,7 @@
             <td><?php echo $value['first_name']; ?></td>
             <td><?php echo $value['date_b']; ?></td>
             <td><?php echo $value['city_name']; ?></td>
-            <td><a href="/edit?id=<?php echo $value['id']; ?>" class="btn btn-success">Details</a></td>
+            <td><a href="/details?user=<?php echo $value['id']; ?>" class="btn btn-success">Details</a></td>
         </tr>
 <?php endforeach; ?>
 </table></p>

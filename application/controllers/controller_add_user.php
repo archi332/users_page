@@ -45,21 +45,17 @@ class Controller_add_user extends Controller {
 		if ($errors) {
 			$this->action_index($errors, 'errors');
 		} else {
-			//@TODO: connect to database and add new user
-
 			$this->library('upload');
-
 			$file_name = date('Ymd') . '_' . $_FILES['foto_name']['name'];
-
 			$this->upload->upload_file($file_name);
+
 
 			$array = $_POST;
 			$array['foto_name'] = $file_name;
-
 			$this->model->insert_db($array);
 
-			header('Location:http://' . $_SERVER['HTTP_HOST']);
 
+			header('Location:http://' . $_SERVER['HTTP_HOST']);
 		}
 
 	}
