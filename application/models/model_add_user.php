@@ -4,6 +4,7 @@ class Model_Add_user extends Model
 {
 
 	/**
+	 * get countries list from DB
 	 * @return array
 	 */
 	public function get_countries()
@@ -12,6 +13,7 @@ class Model_Add_user extends Model
 	}
 
 	/**
+	 * insert new user to DB
 	 * @param $array
 	 */
 	public function insert_db($array)

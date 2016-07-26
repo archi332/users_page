@@ -80,6 +80,11 @@ class Model {
 	}
 
 
+	/**
+	 * select all data from setted table
+	 * @param $table
+	 * @return array
+	 */
 	protected function select_all($table)
 	{
         $sql = "SELECT * FROM $table";

@@ -1,6 +1,5 @@
 <?php
 
-
 class Validation
 {
 
@@ -137,8 +136,10 @@ class Validation
         }
     }
 
-
-
+    /**
+     * @param $rules array
+     * @return array|null
+     */
     function check_valid_img($rules)
     {
         foreach ($rules as $key => $value){
@@ -159,7 +160,12 @@ class Validation
 
     }
 
-
+    /**
+     * @param $name
+     * @param $types
+     * @param $field_name
+     * @return string
+     */
     function type_img($name, $types, $field_name)
     {
         $type = explode(".", $name);
@@ -170,7 +176,12 @@ class Validation
 
     }
 
-
+    /**
+     * @param $cur_size
+     * @param $max_size
+     * @param $field_name
+     * @return string
+     */
     function max_file_size($cur_size, $max_size, $field_name)
     {
 
@@ -179,13 +190,4 @@ class Validation
         return ($cur_size > $max_size_b) ? "Size of file in the field `{$field_name}` is more than {$max_size} Kb!" : '';
 
     }
-
-
-
-
-    function then()
-    {
-        //TODO: valid date: date:start - date:end   , valid file, valid index, add regulars
-    }
-
 }

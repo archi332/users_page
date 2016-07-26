@@ -2,6 +2,9 @@
 
 class Route {
 
+	/**
+	 * get request and load required controller model
+	 */
 	static function start()
 	{
 		$controller_name = 'Main';
@@ -25,7 +28,6 @@ class Route {
 			$controller_name = $array['0'];
 
 		}
-
 
 		$model_name = 'Model_'.$controller_name;
 		$controller_name = 'Controller_'.$controller_name;
@@ -67,6 +69,9 @@ class Route {
 	
 	}
 
+	/**
+	 * redirect to error page
+	 */
 	function ErrorPage404()
 	{
         $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
@@ -74,5 +79,4 @@ class Route {
 		header("Status: 404 Not Found");
 		header('Location:'.$host.'404');
     }
-    
 }

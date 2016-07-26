@@ -23,9 +23,8 @@ class Controller_add_user extends Controller {
 		$this->view->generate('add_user_view.php', 'template_view.php', $data);
 	}
 
-
 	/**
-	 *
+	 * validation data and isnerting to DB/loading file to server
 	 */
 	function action_check()
 	{
@@ -61,6 +60,7 @@ class Controller_add_user extends Controller {
 	}
 
 	/**
+	 * names validation fields and those preferences
 	 * @return array
 	 */
 	function validatation_rules()
@@ -101,6 +101,7 @@ class Controller_add_user extends Controller {
 	}
 
 	/**
+	 * names validation fields and those preferences
 	 * @return array
 	 */
 	function img_validation_rules()
