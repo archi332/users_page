@@ -67,7 +67,7 @@ class Model {
 	 * @param $sql
 	 * @return array
 	 */
-	protected function select($sql)
+	protected function query($sql)
 	{
 		try {
 			$data_array = $this->getPdo()->query($sql)->fetchAll();
@@ -78,6 +78,23 @@ class Model {
 			exit();
 		}
 	}
+
+
+	protected function select_all($table)
+	{
+        $sql = "SELECT * FROM $table";
+
+		try {
+			$data_array = $this->getPdo()->query($sql)->fetchAll();
+			return $data_array;
+		} catch (PDOException $e) {
+			$this->error = 'can\'t connfirm query';
+			$this->db_err($this->error, $e);
+			exit();
+		}
+	}
+
+
 
 
 	/**

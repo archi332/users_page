@@ -20,9 +20,9 @@
 
 	<div class="form-group">
 		<label>Select your city:</label>
-		<select class="form-control" name="country_id">
-			<?php foreach($data['countries'] as $val) : ?>
-			<option value="<?php echo $val['id'] ?>"><?php echo $val['country'] ?></option>
+		<select class="form-control" name="city_id">
+			<?php foreach($data['user_city'] as $val) : ?>
+			<option value="<?php echo $val['id'] ?>"><?php echo $val['city_name'] ?></option>
 
 			<?php endforeach; ?>
 		</select>
@@ -49,11 +49,11 @@ if (isset($data['errors'])){
 	echo '</div></div>';
 
 
-echo '<hr /> <pre>';
+//echo '<hr /> <pre>';
 
 //var_dump($data['errors']);
-	echo '<br><br><br><br>';
+//	echo '<br><br><br><br>';
 //	var_dump($_POST);
-	var_dump($_FILES);
+//	var_dump($_FILES);
 }
 ?>

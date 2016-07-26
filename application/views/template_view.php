@@ -8,14 +8,19 @@
     <script src="/js/bootstrap.min.js" type="text/javascript"></script>
 </head>
 <body>
-<div>
-    <div>
-        <ul>
-            <li><a href="/" class="btn btn-info">Users List</a></li>
-            <li><a href="/add_user" class="btn btn-info">Add user</a></li>
-        </ul>
-        <br class="clearfix"/>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Users List</a></li>
+                <li><a href="/add_user">Add user</a></li>
+            </ul>
+        </div>
     </div>
+</nav>
+
+<div>
     <div class="container">
         <div>
             <?php include 'application/views/' . $content_view; ?>

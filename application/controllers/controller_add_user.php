@@ -18,7 +18,7 @@ class Controller_add_user extends Controller {
 	 */
 	function action_index($add_data = null, $key_data = 0)
 	{
-		$data['countries'] = $this->model->get_countries();
+		$data['user_city'] = $this->model->get_countries();
 		$data[$key_data] = ($add_data !== null) ? $add_data : null;
 		$this->view->generate('add_user_view.php', 'template_view.php', $data);
 	}
@@ -84,7 +84,7 @@ class Controller_add_user extends Controller {
 						'precision' => true,
 						'max_length' => 15,
 						'min_length' => 5],
-				'country_id' => [
+				'city_id' => [
 						'field_name' => 'Страна',
 						'precision' => true,
 						'max_length' => 3,

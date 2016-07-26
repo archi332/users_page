@@ -5,9 +5,9 @@ class Model_Main extends Model
 
     public function get_data()
     {
-        $sql = "SELECT * FROM `users_list`";
+        $sql = "SELECT `foto_name`,`sec_name`,`first_name`,`date_b`,`city_name` FROM `users_list` LEFT JOIN `user_city` ON users_list.city_id=user_city.id";
 
-        return $this->select($sql);
+        return $this->query($sql);
 
     }
 
